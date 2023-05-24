@@ -1,0 +1,7 @@
+<%= render "users/user_info", user_info: @user %>
+
+<%= link_to "edit", edit_user_path(current_user.id) %>
+
+<%= render "new_book", book: @book %>
+
+<%= render "index_book", books: @books %>

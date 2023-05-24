@@ -1,0 +1,22 @@
+<%= render "users/user_info", user_info: @user %>
+
+<%= link_to "edit", edit_user_path(current_user.id) %>
+
+<%= render "books/new_book", book: @book %>
+
+<table>
+   <tr>
+     <th>image</th>
+     <th>name</th>
+     <th></th>
+    </tr>
+   <% @users.each do |user| %>
+   <tr>
+     <td><%= image_tag user.get_profile_image(100, 100) %></td>
+     <td><%= user.name %></td>
+     <td>
+       <%= link_to "Show", user_path(user.id) %>
+     </td>
+  </tr> 
+  <% end %>
+</table>
