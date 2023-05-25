@@ -4,4 +4,31 @@
 
 <%= render "books/new_book", book: @book %>
 
-<%= render "books/index_book", books: @books %>
+<h1>Book detail</h1>
+
+<table>
+  <tr>
+   <th></th>
+   <th></th> 
+   <th></th>
+   <th></th>
+   <th></th>
+  </tr>
+  <tr>
+   <td><%= image_tag @booker.user.get_profile_image(100, 100) %></td>
+   
+   <td><%= link_to @booker.title, book_path(@booker) %></td>
+   
+   <td><%= @booker.body %></td>
+
+   <td>
+    <%= link_to "Edit", edit_book_path(@booker) %>
+   </td>
+   
+   <td>
+    <%= link_to "Destroy", book_path(@booker), method: :delete, "data-confirm" => "Are you sure?" %>
+   </td>
+  </tr> 
+</table>
+
+   <%= link_to @booker.user.name, book_path(@booker) %>

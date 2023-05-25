@@ -1,0 +1,31 @@
+<h1>Books</h1>
+
+<table>
+  <tr>
+   <th></th>
+   <th>title</th> 
+   <th>body</th>
+   <th></th>
+   <th></th>
+   <th></th>
+  </tr>
+  <tr>
+   <td><%= image_tag booker.user.get_profile_image(100, 100) %></td>
+   
+   <td><%= link_to booker.title, book_path(booker) %></td>
+   
+   <td><%= booker.body %></td>
+   
+   <td>
+    <%= link_to "Show", book_path(booker) %>
+   </td>
+   
+   <td>
+    <%= link_to "Edit", edit_book_path(booker) %>
+   </td>
+   
+   <td>
+    <%= link_to "Destroy", book_path(booker), method: :delete, "data-confirm" => "Are you sure?" %>
+   </td>
+  </tr> 
+</table>
