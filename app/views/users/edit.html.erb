@@ -1,16 +1,24 @@
-<h1>User info</h1>
-
-<%= form_with model: @user_info, local: true do |f| %>
- 
-  <p>Name</p>
-  <%= f.text_field :name %>
-  
-  <p>Image</p>
-  <%= f.file_field :profile_image, accept: "image/*" %>
-  
-  <p>introduction</p>
-  <%= f.text_area :introduction %>
-  
-  <p><%= f.submit 'Update User' %><p>
-  
-<% end %>
+<div class="container ">
+  <div class-"row">
+    <div class="col-2 col-8 col-2 mx-auto">
+      <h1>User info</h1>
+      
+      <%= form_with model: @user_info, local: true do |f| %>
+      
+      <%= render "homes/error", error: f.object %>
+      
+        <p>Name</p>
+        <%= f.text_field :name %>
+        
+        <p class="mt-2">Image</p>
+        <%= f.file_field :profile_image, accept: "image/*" %>
+        
+        <p class="mt-2">introduction</p>
+        <%= f.text_area :introduction %>
+        
+        <p class="mt-2"><%= f.submit 'Update User' %><p>
+        
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,23 +1,31 @@
-<h1>Editing Book</h1>
-
-<%= form_with model: @book_info, local: true do |f| %>
- 
-  <p>title</p>
-  <%= f.text_field :title %>
-  
-  <p>opinion</p>
-  <%= f.text_area :body %>
-  
-  <p><%= f.submit 'Update User' %><p>
-  
-<% end %>
-
- <span>
-  <%= link_to "show", book_path(@book_info) %>
- </span>
- 
- <span>|</span>
- 
- <span>
-  <%= link_to "back", books_path %>
- </span>
+<div class="container ">
+  <div class-"row">
+    <div class="col-2 col-8 col-2 mx-auto">
+     <h1>Editing Book</h1>
+     
+     <%= form_with model: @book_info do |f| %>
+      
+     <%= render "homes/error", error: f.object %> 
+      
+       <p class="mt-2">title</p>
+       <%= f.text_field :title %>
+       
+       <p class="mt-2">opinion</p>
+       <%= f.text_area :body %>
+       
+       <p class="mt-2"><%= f.submit 'Update User' %><p>
+       
+     <% end %>
+     
+      <span>
+       <%= link_to "show", book_path(@book_info) %>
+      </span>
+      
+      <span>|</span>
+      
+      <span>
+       <%= link_to "back", books_path %>
+      </span>
+    </div>
+  </div>
+</div>

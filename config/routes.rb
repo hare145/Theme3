@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :users, only: [:edit, :show, :update, :index,]
-  resources :books, only: [:new, :create, :edit, :show, :index, :destroy]
+  resources :books, only: [:new, :create, :edit, :update, :show, :index, :destroy]
 end

@@ -1,12 +1,20 @@
-<h1>User info</h1>
-
-<%= image_tag user_info.get_profile_image(100, 100) %>
-
-<p>name
-  <span><%= user_info.name %></span>
-</p>
-
-<p>introduction
- <span><%= user_info.introduction %></span>
-</p>
-
+<div class="container">
+ <h1>User info</h1>
+  <%= image_tag user_info.get_profile_image(100, 100) %>
+  
+  <table class="table">
+    <tr> 
+     <th>name</th> 
+     <td class="form-control-lg"><%= user_info.name %></td>
+    </tr>
+    <tr>
+     <th>introduction</th> 
+     <td><%= user_info.introduction %></td>
+    </tr>
+  </table>
+  <div  class="btn btn-outline-secondary btn-block">
+   <%= link_to edit_user_path(current_user.id) do %>
+   <i class="fas fa-user-cog text-secondary"></i>
+   <% end %>
+  </div>
+</div>
