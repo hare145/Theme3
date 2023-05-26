@@ -3,6 +3,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+ 
+  has_many :book, dependent: :destroy
     
     validates :name, uniqueness: true,
                      length: { minimum:2, maximum: 20 }
@@ -11,7 +13,7 @@ class User < ApplicationRecord
     
     has_one_attached :profile_image
   
-  has_many :book, dependent: :destroy
+
   
   def get_profile_image(width, height)
    unless profile_image.attached?
