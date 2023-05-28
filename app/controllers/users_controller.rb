@@ -1,11 +1,12 @@
 class UsersController < ApplicationController
 
+ before_action :authenticate_user!
  before_action :matching_user, only: [:edit, :update]
 
   def show
     @user_info = User.find(params[:id])
     @book = Book.new
-    @books = @user_info.book
+    @books = @user_info.books
   end
 
   def edit
@@ -38,7 +39,7 @@ class UsersController < ApplicationController
   def matching_user
    user = User.find(params[:id])
    unless user.id == current_user.id
-     redirect_to user_session_path
+     redirect_to user_path(current_user.id)
    end
   end 
 

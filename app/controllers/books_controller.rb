@@ -1,10 +1,7 @@
 class BooksController < ApplicationController
   
+  before_action :authenticate_user!
   before_action :matching_user, only: [:edit, :update, :destroy]
-
-  def new
-    @book = Book.new
-  end
 
   def index
     @book = Book.new
@@ -18,7 +15,7 @@ class BooksController < ApplicationController
     @book_info = Book.new(book_params)
     @book_info.user_id = current_user.id
     if@book_info.save
-      redirect_to books_path,
+      redirect_to book_path(@book_info),
       notice: "You have created book successfully."
     else
      @book = Book.new
@@ -54,7 +51,7 @@ class BooksController < ApplicationController
   def destroy
     book = Book.find(params[:id])
     book.destroy
-    redirect_to user_path(current_user.id)
+    redirect_to books_path
   end
 
 
@@ -70,7 +67,7 @@ class BooksController < ApplicationController
     user = booker.user_id
     user_info = User.find(user)
    unless user_info.id == current_user.id
-     redirect_to user_session_path
+     redirect_to books_path
    end
   end 
 end

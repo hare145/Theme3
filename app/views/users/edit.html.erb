@@ -5,7 +5,7 @@
       
       <%= form_with model: @user_info, local: true do |f| %>
       
-      <%= render "homes/error", error: f.object %>
+      <%= render "home/error", error: f.object %>
       
         <p>Name</p>
         <%= f.text_field :name %>

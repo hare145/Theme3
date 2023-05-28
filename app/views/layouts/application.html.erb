@@ -16,60 +16,56 @@
    <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-dark" >
      <div class="container">
-      <div class="row-lg-4">
        <a class="navbar-brand p-3 text-light" href='<%= top_path %>'> Bookers</a>
-      </div>
-      <div class="row-lg-8">
        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
        </button>
        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar m-2">
+        <ul class="navbar-nav ml-auto">
          <% if user_signed_in? %>
-         <li class="navbar ml-2">
+         <li class="navbar ml-2 ">
           <%= link_to user_path(current_user.id) do %>
-           <i class="fas fa-home"></i> Home
+           <i class="fas fa-home text-light"></i> <span class="text-light">Home
           <% end %>
          </li>
          <li class="navbar ml-2">
           <%= link_to users_path do %>
-           <i class="fas fa-users"></i> Users
+           <i class="fas fa-users text-light"></i> <span class="text-light">Users
           <% end %>
          </li>
          <li class="navbar ml-2">
           <%= link_to books_path do %>
-          <i class="fas fa-book-open"></i> Books
+          <i class="fas fa-book-open text-light"></i> <span class="text-light">Books
           <% end %>
          </li>
-         <li class="navbar-nav ml-2">
+         <li class="navbar ml-2">
           <%= link_to destroy_user_session_path, method: :delete do %>
-          <i class="fas fa-sign-in-alt"></i> Log out
+          <i class="fas fa-sign-in-alt text-light"></i> <span class="text-light">Log out
           <% end %>
          </li>
          <% else %>
-         <li class="navbar-nav ml-2">
+         <li class="navbar ml-2 ">
           <%= link_to  top_path do %>
-           <i class="fas fa-home"></i> Home
+           <i class="fas fa-home text-light"></i> <span class="text-light">Home 
           <% end %>
          </li>
-         <li class="navbar-nav ml-2">
+         <li class="navbar ml-2">
           <%= link_to about_path do %>
-           <i class="fas fa-link"></i> About
+           <i class="fas fa-link text-light"></i> <span class="text-light">About
           <% end %>
          </li>
-         <li class="navbar-nav ml-2">
+         <li class="navbar ml-2">
           <%= link_to new_user_registration_path do %>
-          <i class="fas fa-user-plus"></i> Sing up
+          <i class="fas fa-user-plus text-light"></i> <span class="text-light">Sing up
           <% end %>
          </li>
-         <li class="navbar-nav ml-2">
+         <li class="navbar ml-2">
           <%= link_to new_user_session_path do %>
-          <i class="fas fa-sign-in-alt"></i> Log in
+          <i class="fas fa-sign-in-alt text-light"></i> <span class="text-light">Log in
           <% end %>
          </li>
          <% end %>
         </ul>
-       </diV>
       </div>
      </div>
     </nav>
